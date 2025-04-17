@@ -1,55 +1,39 @@
 #include<iostream>
 using namespace std;
-
-int CalculateSumOfDigits(int Number)
+class super_digit
 {
-    int Sum = 0;
-
-    while(Number > 0)
+    public:
+    int CalculateSumofDigit(string n)
     {
-        Sum += Number % 10;
-        Number /= 10;
+        int sum=0;
+        for(char digit:n)
+        {
+            sum+=digit-'0';
+        }
+        return sum;
     }
-
-    return Sum;
-}
-
-int CalculateSuperDigit(int Number)
-{
-    if(Number < 10)
+    int CalculateSuperDigitofNumber(string n,int k)
     {
-        return Number;
+        long long initial_sum=(long long)CalculateSumofDigit(n)*k;
+        if(initial_sum<10)
+        {
+            return initial_sum;
+        }
+        else
+        {
+            return CalculateSuperDigitofNumber(to_string(initial_sum),1);
+        }
     }
-
-    int Sum = 0;
-
-    while(Number > 0)
-    {
-        Sum += Number % 10;
-        Number /= 10;
-    }
-
-    return CalculateSuperDigit(Sum);
-}
-
+};
 int main()
 {
-    int Num, NumRepeat;
-
-    cout << "Enter number(n): ";
-    cin >> Num;
-
-    cout << "Enter the number of repetitions(k): ";
-    cin >> NumRepeat;
-
-    int Sum = CalculateSumOfDigits(Num);
-
-    int TotalSum = Sum * NumRepeat;
-
-    int SuperDigit = CalculateSuperDigit(TotalSum);
-
-    cout << "Super digit: " << SuperDigit << endl;
-    
-
+    string n;
+    int k;
+    cout<<"Enter the Number as a string: ";
+    cin>>n;
+    cout<<"Enter the Number of times you want to repeat the number : ";
+    cin>>k;
+    super_digit s;
+    cout<<"The Super Digit of "<<n<<" is : "<<s.CalculateSuperDigitofNumber(n,k)<<endl;
     return 0;
 }

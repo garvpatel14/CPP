@@ -42,7 +42,7 @@ int main() {
                 }
                 break;
 
-            case 2:  // UpdateData
+            case 2:  
                 cout << "Enter the plot number to update (1 to " << c << "): ";
                 cin >> PlotNumber;
                 if (PlotNumber >= 1 && PlotNumber <= c) {

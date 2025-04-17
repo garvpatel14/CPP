@@ -24,10 +24,10 @@ int Calculate_Avarage()
     }
 void DisplayData()
 {
-    cout<<"StudentName"<<StudentName<<endl;
-    cout<<"subject"<<Mark1;
-    cout<<"subject"<<Mark2;
-    cout<<"subject"<<Mark3;
+    cout<<"Student Name "<<StudentName<<endl;
+    cout<<"subject 1"<<Mark1<<endl;
+    cout<<"subject 2"<<Mark2<<endl;
+    cout<<"subject 3"<<Mark3<<endl;
 }
 
 };
